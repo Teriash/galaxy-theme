@@ -1,18 +1,12 @@
-# Teriash Galaxy 3.2 — Ultra Details
+# Teriash Galaxy 3.4 — Dynamic Details
 
-Nowa wersja samodzielnego motywu do Margonem Nowy Interfejs. Bez GitHuba i CDN.
+Instalacja: rozpakuj ZIP, a plik `install/teriash-galaxy.user.js` wklej do Tampermonkey. Wyłącz poprzednie wersje motywu. Skrypt jest w pełni samodzielny i zawiera grafiki PNG osadzone jako data URI.
 
-## Instalacja
-1. Wyłącz Winter Atelier oraz starsze wersje Galaxy w Tampermonkey.
-2. Zainstaluj `install/teriash-galaxy.user.js`.
-3. Odśwież kartę Margonem NI za pomocą Ctrl+F5.
+## Nowe funkcje JS
+- Obserwowanie nowych paneli i tooltipów przez MutationObserver z ograniczaniem pracy do jednej klatki
+- Palety blue, violet, cyan oraz tryby standard/ultra (w konsoli `GalaxyTheme.configure({palette:"violet",details:"ultra"})`)
+- Opcjonalna podmiana znacznika ruchu: `GalaxyTheme.configure({marker:true})`
+- Diagnostyka: `GalaxyTheme.debug()` i ręczne odświeżanie oznaczeń: `GalaxyTheme.rescan()`
+- Trwałe ustawienia i możliwość wyłączenia `GalaxyTheme.disable()`
 
-## Co poprawiono
-- Bardziej szczegółowe belki górne/dolne, ramki okien i panele HUD.
-- Drobne stany slotów (puste, aktywne, hover), zakładek i przycisków.
-- Dodatkowe ramki, elementy formularzy, paski, tooltipy, obszary walki, panel klanu, zadania i minmapa.
-- Wbudowane 35 autorskich tekstur PNG, bez zewnętrznych adresów.
-- Diagnostyka selektorów poprzez `GalaxyTheme.debug()` w konsoli gry.
-
-## Ograniczenia
-Bazowano na sposobie działania Winter Atelier i dostępnych wzorcach NI, ale nie pozyskano pełnej treści jego zminifikowanego CSS ani wszystkich oryginalnych grafik, więc nie jest to kompletna zgodność 1:1. Motyw nie został przetestowany w zalogowanym kliencie Margonem. Nie zmienia sprite'ów przedmiotów, mapy, pozycji okien ani ich `z-index`.
+Uwaga: nie modyfikuje pozycji elementów, z-index ani obrazków przedmiotów/mapy. Podmiana znacznika działa tylko przy udostępnieniu `Engine.imgLoader.checkExist`; domyślnie wyłączona. Nie był testowany w kliencie gry — część selektorów może wymagać dostosowania.
