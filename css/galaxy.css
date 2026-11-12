@@ -1,0 +1,154 @@
+/* ============================================================
+   GALAXY — Margonem Nowy Interfejs | 1.0.0
+   Autor: Teriash
+   Kolory i zachowanie mozna modyfikowac w sekcji :root.
+   CSS celowo NIE ustawia pozycji slotow, wymiarow HUD ani
+   globalnego z-index (aby nie zaslaniac tooltipow i mapy).
+   ============================================================ */
+
+:root.teriash-galaxy {
+  --gx-void: #070b1c;
+  --gx-deep: #0b1431;
+  --gx-panel: #101d3b;
+  --gx-panel-2: #17294a;
+  --gx-blue: #2a83e8;
+  --gx-cyan: #60d9ff;
+  --gx-purple: #8154d9;
+  --gx-edge: #3b70ba;
+  --gx-text: #e4f2ff;
+  --gx-muted: #aac5e6;
+  --gx-slot: #101c36;
+  --gx-slot-edge: #3a5b8b;
+  --gx-shadow: 0 6px 20px rgba(0, 3, 16, .52);
+  color-scheme: dark;
+}
+
+/* ---- 1. Okna, panele oraz naglowki ---- */
+html.teriash-galaxy :is(
+  .window, .window-content, .window-container, .dialog, .modal,
+  .widget, .widget-content, .panel, .panel-content,
+  .inventory, .equipment, .depo, .deposit,
+  .shop, .shop-window, .npc-dialog, .guild-window,
+  .quest-window, .friends-window, .clan-window
+) {
+  background-color: var(--gx-deep) !important;
+  background-image: linear-gradient(145deg, rgba(41,80,155,.23), transparent 52%),
+                    linear-gradient(160deg, #101e3e 0%, #09112a 100%) !important;
+  color: var(--gx-text) !important;
+  border-color: rgba(86,153,241,.5) !important;
+}
+
+html.teriash-galaxy :is(
+  .window-header, .window-title, .widget-header, .panel-header,
+  .dialog-header, .modal-header, .header-bar,
+  .inventory-header, .shop-header, .guild-header
+) {
+  background: linear-gradient(90deg, #0c2149, #1c3269 55%, #24194e) !important;
+  color: #f0f7ff !important;
+  border-color: #4779be !important;
+  text-shadow: 0 1px 3px #01030e !important;
+}
+
+/* ---- 2. Pasek gorny, dolny, ikony menu ---- */
+html.teriash-galaxy :is(
+  .top-bar, .bottom-bar, .top-panel, .bottom-panel,
+  .main-menu, .menu-bar, .quick-menu, .action-bar,
+  .interface-bar, .game-bar, .hud-bar
+) {
+  background: linear-gradient(180deg, #1b3165 0%, #0a1430 82%) !important;
+  border-color: #356ab0 !important;
+  color: var(--gx-text) !important;
+}
+
+/* ---- 3. Chat, logi, listy graczy ---- */
+html.teriash-galaxy :is(
+  .chat, .chat-window, .chat-container, .chat-content, .chat-messages,
+  .battle-log, .battlelog, .log-window,
+  .clan-list, .friends-list, .players-list
+) {
+  background-color: rgba(9, 17, 39, .95) !important;
+  color: var(--gx-text) !important;
+  border-color: #315b99 !important;
+}
+html.teriash-galaxy :is(.chat, .chat-window, .battle-log, .battlelog) :is(input, textarea) {
+  background: #0a1733 !important;
+  border: 1px solid #3b70b3 !important;
+  color: #e8f4ff !important;
+}
+
+/* ---- 4. Torba, ekwipunek, sklep, depozyt: pojedyncze sloty ---- */
+/* Selektory kieruja styl na elementy-sloty, a nie na cale tlo kontenera. */
+html.teriash-galaxy :is(
+  .item-slot, .inventory-slot, .equipment-slot, .bag-slot,
+  .shop-slot, .deposit-slot, .depo-slot, .quick-slot,
+  .slot.item, .inventory .slot, .equipment .slot,
+  .shop .slot, .depo .slot, .deposit .slot, .bag .slot
+) {
+  background-color: var(--gx-slot) !important;
+  background-image: linear-gradient(135deg, rgba(56,109,190,.20), rgba(9,18,39,.30)) !important;
+  border: 1px solid var(--gx-slot-edge) !important;
+  box-shadow: inset 0 0 0 1px rgba(3,8,24,.5), inset 0 0 10px rgba(46,95,174,.16) !important;
+  box-sizing: border-box !important;
+}
+html.teriash-galaxy :is(
+  .item-slot, .inventory-slot, .equipment-slot, .bag-slot,
+  .shop-slot, .deposit-slot, .depo-slot, .quick-slot,
+  .slot.item, .inventory .slot, .equipment .slot,
+  .shop .slot, .depo .slot, .deposit .slot, .bag .slot
+):hover {
+  border-color: var(--gx-cyan) !important;
+  box-shadow: inset 0 0 9px rgba(58,152,255,.24), 0 0 7px rgba(50,139,247,.24) !important;
+}
+
+/* ---- 5. Przyciski, zakladki, formularze ---- */
+html.teriash-galaxy :is(
+  .window button, .dialog button, .modal button,
+  .window .button, .dialog .button, .modal .button,
+  .tab, .tab-button, .window input, .window select, .window textarea
+) {
+  color: var(--gx-text) !important;
+  border-color: #376cb0 !important;
+  background-color: #152a51 !important;
+}
+html.teriash-galaxy :is(
+  .window button:hover, .dialog button:hover, .modal button:hover,
+  .window .button:hover, .tab:hover, .tab-button:hover,
+  .tab.active, .tab-button.active
+) {
+  background-color: #24518b !important;
+  border-color: #69caff !important;
+}
+
+/* ---- 6. Tooltips i menu kontekstowe ---- */
+html.teriash-galaxy :is(
+  .tooltip, .item-tooltip, .game-tooltip, .context-menu,
+  .dropdown-menu, .popup-menu
+) {
+  background-color: #0b1530 !important;
+  background-image: linear-gradient(145deg, rgba(27,51,99,.7), rgba(8,14,33,.96)) !important;
+  border-color: #5989d1 !important;
+  color: #ebf5ff !important;
+  box-shadow: var(--gx-shadow) !important;
+}
+
+/* ---- 7. Paski przewijania (Chrome/Edge/Opera/Brave) ---- */
+html.teriash-galaxy :is(.window, .chat, .chat-window, .panel, .inventory, .shop, .depo, .deposit) *::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+html.teriash-galaxy :is(.window, .chat, .chat-window, .panel, .inventory, .shop, .depo, .deposit) *::-webkit-scrollbar-track {
+  background: #0b1733;
+}
+html.teriash-galaxy :is(.window, .chat, .chat-window, .panel, .inventory, .shop, .depo, .deposit) *::-webkit-scrollbar-thumb {
+  background: #3867a9;
+  border-radius: 8px;
+}
+
+/* ---- 8. Niebieska poswiata tylko na wybranych elementach ---- */
+html.teriash-galaxy :is(.window-header, .widget-header, .panel-header) {
+  box-shadow: inset 0 -1px 0 rgba(95,190,255,.23) !important;
+}
+
+/* UWAGA: NI ma rozne wersje DOM. Jesli jakis panel nie zmienia koloru,
+   sprawdz jego klase w DevTools i dodaj do odpowiedniej listy :is().
+   Celowo nie stylujemy canvas, mapy, .item, img ani wszystkich div-ow. */
