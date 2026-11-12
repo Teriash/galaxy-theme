@@ -1,53 +1,58 @@
-# Galaxy — motyw Margonem NI
+# Teriash Galaxy — motyw Margonem NI (2.0.0)
 
-Ciemny, granatowo-niebiesko-fioletowy motyw interfejsu Margonem (Nowy Interfejs).
+Kompletny autorski pakiet motywu kosmicznego do **Nowego Interfejsu** gry Margonem. Granatowo-niebiesko-fioletowe panele, tekstury gwiazd, nagłówki, belki HUD, elementy czatu, log walki, osobne sloty, tooltipy, przyciski, listy i paski przewijania.
 
-## Instalacja
+## Instalacja na GitHubie
 
-1. Utwórz **publiczne** repozytorium GitHub o nazwie `galaxy-theme` na koncie `Teriash`.
-2. Wrzuć **zawartość** tego folderu do głównego katalogu repozytorium, zachowując ścieżki.
-3. Ustaw gałąź domyślną na `main`.
-4. Otwórz adres instalacyjny i zaakceptuj skrypt w Tampermonkey:
-
-   https://raw.githubusercontent.com/Teriash/galaxy-theme/main/install/galaxy.user.js
-
-5. Odśwież grę Margonem NI. Przy pierwszej publikacji CDN może potrzebować chwili na udostępnienie plików.
+1. Utwórz **publiczne** repozytorium `Teriash/galaxy-theme` (domyślna gałąź `main`).
+2. Rozpakuj ZIP i wgraj do **głównego katalogu** repozytorium wszystkie foldery: `assets`, `css`, `scripts`, `install` oraz `README.md`. Nie wgrywaj katalogu nadrzędnego jako dodatkowego poziomu.
+3. Otwórz [instalator Galaxy](https://raw.githubusercontent.com/Teriash/galaxy-theme/main/install/galaxy.user.js) i zainstaluj w Tampermonkey, następnie odśwież grę.
+4. Wyłącz inne motywy Margonem NI. Dwa aktywne motywy mogą nadpisywać się nawzajem.
+5. Gdy GitHub wykorzystuje inną nazwę konta/repozytorium, zamień `Teriash/galaxy-theme` w pliku `install/galaxy.user.js` (4 wystąpienia) i w tym README.
 
 ## Struktura
 
 ```text
-galaxy-theme/
-├── install/
-│   └── galaxy.user.js        # instalacja i automatyczna aktualizacja
-├── css/
-│   └── galaxy.css            # kolory i wyglad elementow
-├── scripts/
-│   └── galaxy.js             # wlaczenie klasy motywu
-├── assets/
-│   ├── galaxy-icon.svg       # ikona Tampermonkey
-│   ├── galaxy-nebula.svg     # kosmiczne tlo okien
-│   ├── galaxy-stars.svg      # gwiazdy dla chatu i paneli
-│   ├── galaxy-header.svg     # grafika naglowkow i paskow
-│   └── galaxy-slot.svg       # tekstura pojedynczego slotu
-└── README.md
+assets/
+  nebula.svg          — mgławica do opcjonalnego tła
+  stars.svg           — tekstura gwiazd
+  panel.svg           — panele i okna
+  header.svg          — nagłówki okien
+  bar.svg             — górna/dolna belka i HUD
+  slot.svg            — sloty puste i zajęte
+  slot-active.svg     — aktywne sloty
+  button.svg          — przyciski
+  tooltip.svg         — tooltipy i menu
+  chat.svg            — chat i log walki
+  scroll-track.svg    — tor paska przewijania
+  scroll-thumb.svg    — suwak paska przewijania
+  divider.svg         — poziome separatory
+  icon.svg            — ikona motywu
+css/galaxy.css        — wszystkie reguły wyglądu (16 sekcji)
+scripts/galaxy.js     — aktywacja motywu i opcje lokalne
+install/galaxy.user.js — instalator Tampermonkey
+README.md
 ```
 
-## Zmiana kolorów
+## Dodatkowe opcje
 
-Edytuj zmienne `--gx-*` na początku `css/galaxy.css` oraz reguły, w których występują.
+W konsoli przeglądarki (F12) można wykonać:
 
-## Aktualizacje
+```js
+GalaxyTheme.configure({strongNebula:true}); // bardziej kosmiczne tła
+GalaxyTheme.configure({strongNebula:false}); // standardowe tła
+GalaxyTheme.configure({flat:true});         // panele bez tekstur
+GalaxyTheme.configure({flat:false});        // przywróć tekstury
+GalaxyTheme.disable();                      // wyłącz na bieżącej karcie
+GalaxyTheme.enable();                       // włącz ponownie
+```
 
-Po zmianie CSS/JS zwiększ `VERSION` w `install/galaxy.user.js` i `@version` o ten sam numer (np. `1.0.2`). Zmiana numeru odświeża linki do plików. Po zmianie userscriptu Tampermonkey może pobrać nową wersję automatycznie.
+Ustawienia są zachowywane w `localStorage` danej domeny świata gry.
 
-## Jeśli konto lub repozytorium na GitHubie mają inną nazwę
+## Aktualizacje i adresy plików
 
-Zmień `Teriash/galaxy-theme` we wszystkich trzech adresach wewnątrz `install/galaxy.user.js` oraz w README.
+Instalator pobiera aktualny CSS i JavaScript z `raw.githubusercontent.com` (nie z cache jsDelivr). W celu wydania zmian podnieś **jednocześnie** `@version`, stałą `VERSION` w instalatorze i `version` w `scripts/galaxy.js`. Użytkownicy otrzymają aktualizację Tampermonkey zgodnie z ustawieniami menedżera. Zmiany w `.svg` również docierają z GitHuba, choć cache przeglądarki może wymagać odświeżenia.
 
-## Ważne
+## Granice i testowanie
 
-To **autorski, niezależny zestaw stylów**, a nie kopia oryginalnego Winter Atelier. Selekcje klas są przygotowane na typowe elementy NI, ale nie zostały zweryfikowane na aktualnym DOM gry. Część sekcji może wymagać dopasowania klas poprzez narzędzia programistyczne przeglądarki. Motyw nie wpływa na mechanikę gry.
-
-## Grafiki
-
-Pliki w `assets/` sa rzeczywistymi zasobami motywu. `css/galaxy.css` odwoluje sie do czterech tekstur SVG przez wzgledne adresy `../assets/...`, a ikona jest wykorzystywana przez naglowek userscriptu. SVG mozna edytowac jak zwykle pliki tekstowe.
+Projekt zawiera wszystkie pliki potrzebne do opublikowania i zainstalowania motywu, ale **nie został przetestowany na aktywnym DOM Margonem NI**. Gra może używać innych klas CSS — wówczas niektóre szczegóły będą wymagały dopasowania selektorów w `css/galaxy.css`. Motyw nie modyfikuje położenia slotów, z-index, mapy, tooltipów, atrybutów przedmiotów, ani mechaniki gry. To własne zasoby SVG i własny kod CSS/JS, nie kopia zasobów Winter Atelier.
