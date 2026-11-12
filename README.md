@@ -1,11 +1,18 @@
-# Teriash Galaxy 3.0 — Margonem NI
+# Teriash Galaxy 3.1 — detale PNG
 
-**Instalacja:** otworz `install/teriash-galaxy.user.js` w Tampermonkey lub przeciagnij plik do przegladarki i zainstaluj. Nie wymaga GitHuba, jsDelivr ani pobierania dodatkowych plikow.
+Motyw Margonem Nowy Interfejs. Samodzielny plik Tampermonkey: `install/teriash-galaxy.user.js`.
 
-**Zawartosc:** `install/teriash-galaxy.user.js` ma caly CSS i grafiki PNG osadzone jako data URI. Foldery `css/` oraz `assets/` zawieraja edytowalne zrodla.
+## Instalacja
+1. Wyłącz inne motywy Margonem NI (w tym Galaxy 3.0 / Winter Atelier).
+2. Zainstaluj `teriash-galaxy.user.js` w Tampermonkey.
+3. Odśwież grę klawiszami Ctrl+F5.
+4. W konsoli (F12) sprawdź `GalaxyTheme.debug()`.
 
-**Diagnostyka w konsoli przegladarki:** `GalaxyTheme.debug()`.
+## Zawartość
+- Główne style CSS z rzeczywistymi selektorami NI oraz dodatkowymi detalami.
+- Grafiki PNG: tła, belki, sloty, okna, narożniki, zakładki, pola, paski i tooltipy.
+- Wszystkie zasoby są osadzone w pliku instalacyjnym. Nie potrzebujesz GitHuba ani CDN.
+- Pliki `assets` i `css` w ZIP-ie są też do dalszej edycji.
 
-**Wylaczenie motywu w konsoli:** `GalaxyTheme.disable()`. Wlaczenie: `GalaxyTheme.enable()`.
-
-**Wazne:** uwzgledniono rzeczywiste selektory wielu elementow Margonem NI. Bez testow w Twojej aktualnej wersji klienta nie da sie zagwarantowac poprawnej podmiany absolutnie kazdej tekstury. Nie jest to kopia oryginalnego kodu Winter Atelier; wykorzystuje podobna architekture oraz niezaleznie przygotowane elementy graficzne.
+## Ważne
+To autorska stylistyka inspirowana sposobem działania Winter Atelier. Nie jest to przerobiona kopia wszystkich oryginalnych grafik. Różne wersje Margonem NI mogą wymagać dopasowania selektorów po testach w grze. Nie zmieniamy wymiarów, pozycji ani z-indexu elementów gry.

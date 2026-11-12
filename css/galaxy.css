@@ -401,3 +401,151 @@ html.teriash-galaxy .extended-stats .scroll-pane h3 {color:#b8e8ff!important;bor
 html.teriash-galaxy .new-chat-window :is(*::-webkit-scrollbar-thumb),
 html.teriash-galaxy .inventory_wrapper :is(*::-webkit-scrollbar-thumb) {background:#356da8!important;}
 /* Render sprite icons and item images unchanged: no global img/canvas filter. */
+
+
+/* ===== TERIASH GALAXY 3.1 / DETAIL PASS ===== */
+html.teriash-galaxy {
+ --gx-frame:url('../assets/window-frame.png');
+ --gx-tab:url('../assets/active-tab.png');
+ --gx-field:url('../assets/input-field.png');
+ --gx-progress:url('../assets/progress-fill.png');
+ --gx-map-frame:url('../assets/map-frame.png');
+ --gx-inset:url('../assets/inset.png');
+ --gx-shimmer:url('../assets/shimmer.png');
+ --gx-corner:url('../assets/corner.png');
+ --gx-close:url('../assets/close.png');
+ --gx-outline:rgba(111,189,255,.7);
+ --gx-light:rgba(165,225,255,.23);
+}
+/* Window trim: decorative art only; respect game geometry */
+html.teriash-galaxy :is(.border-window,.game-window-positioner .window,.console-wnd.border-window,.mAlert-layer .message,.world-window,.chat-configure-window) {
+ border-color:#548ad2!important;
+ box-shadow:0 7px 22px rgba(0,4,23,.55),inset 0 0 0 1px rgba(152,222,255,.13)!important;
+}
+html.teriash-galaxy :is(.border-window .content,.console-wnd.border-window .content,.settings-window .content,.help-window2 .content,.mAlert-layer .scroll-wrapper.menu-wrapper .wrapper){
+ border-color:#4983c2!important;
+ background-color:#071b37!important;
+ background-image:linear-gradient(160deg,rgba(7,15,37,.37),rgba(5,13,29,.63)),var(--gx-inset)!important;
+ background-size:100% 100%!important;
+}
+/* Character, stats, equipment and separators */
+html.teriash-galaxy :is(.character_wrapper .stats-list li,.extended-stats .scroll-pane li,.card-content .clan-members-content table tr,.quest-window li,.settings-window li){
+ border-bottom-color:rgba(90,147,214,.25)!important;
+}
+html.teriash-galaxy :is(.character_wrapper .stats-list li .value,.extended-stats .scroll-pane .value,.herogold,.herocredits){color:#b9e9ff!important;}
+html.teriash-galaxy :is(.character_wrapper .stats-list li:hover,.extended-stats .scroll-pane li:hover,.card-content .clan-members-content table tr:hover){background-color:rgba(52,103,187,.13)!important;}
+html.teriash-galaxy :is(.stats-wrapper,.equipment-wrapper,.inventory-grid-bg,.shop-content,.trade-window .content,.auction-window .main-column-auction){
+ outline-color:rgba(112,191,247,.29)!important;
+}
+/* Actual NI top and bottom graphics: avoid modifying the global body and map */
+html.teriash-galaxy .layer.interface-layer .positioner.top .bg,
+html.teriash-galaxy .layer.interface-layer .positioner.bottom .bg {
+ background-color:#091c3e!important;
+ background-image:linear-gradient(90deg,rgba(7,13,38,.3),rgba(39,51,112,.2),rgba(7,13,38,.3)),var(--gx-bar)!important;
+ background-size:100% 100%!important;
+}
+html.teriash-galaxy .layer.interface-layer .main-column.right-column .border{
+ background-image:linear-gradient(180deg,rgba(11,30,65,.78),rgba(6,17,37,.84)),var(--gx-panel-art)!important;
+ border-color:rgba(110,182,255,.55)!important;
+}
+/* HUD corner decorations, map controls and mini-map search */
+html.teriash-galaxy :is(.mini-map .search-wrapper,.mini-map .search-wrapper input,.mini-map .mini-map-global-content .search-wrapper){
+ background-color:#091a38!important;
+ border-color:#478acb!important;
+ color:#e4f6ff!important;
+}
+html.teriash-galaxy :is(.mini-map .search-wrapper,.mini-map .mini-map-global-content .search-wrapper){
+ background-image:var(--gx-field)!important;background-size:100% 100%!important;
+}
+html.teriash-galaxy .layer.interface-layer .positioner.top .hud-container .map_ball{
+ box-shadow:inset 0 0 14px rgba(65,164,235,.27),0 0 9px rgba(50,114,208,.29)!important;
+}
+/* Tabs: selected, inactive, disabled */
+html.teriash-galaxy :is(.cards-header-wrapper .cards-header .card.active,.cards-header-wrapper .cards-header .card.selected,.world-window__tabs .active,.bags-navigation .item.active,.chat-channel-card-wrapper.active,.tab.active,.tab.selected,.selected-tab){
+ background-color:#204478!important;
+ background-image:var(--gx-tab)!important;background-size:100% 100%!important;
+ border-color:#9bd8ff!important;color:#f4faff!important;
+ box-shadow:inset 0 0 0 1px rgba(191,239,255,.25),0 0 8px rgba(82,167,255,.19)!important;
+}
+html.teriash-galaxy :is(.cards-header-wrapper .cards-header .card,.bags-navigation .item,.chat-channel-card-wrapper,.world-window__tabs .tab,.tab):hover:not(.disabled){
+ border-color:#90caff!important;filter:brightness(1.1);
+}
+html.teriash-galaxy :is(.button,.widget-button,.tab,.cards-header-wrapper .card):is(.disabled,[disabled]){filter:saturate(.5);opacity:.63;}
+/* Buttons states and menu options */
+html.teriash-galaxy :is(.button,.widget-button,.popup-menu .menu-item,.mAlert-layer .scroll-wrapper.menu-wrapper .wrapper .bck-wrapper .option):hover:not(.disabled){
+ background-image:linear-gradient(rgba(105,163,251,.14),rgba(14,37,92,.16)),var(--gx-button)!important;
+ border-color:#81c9ff!important;
+}
+html.teriash-galaxy :is(.button,.widget-button):active:not(.disabled){filter:brightness(.92);box-shadow:inset 0 2px 7px rgba(0,6,28,.6)!important;}
+html.teriash-galaxy :is(.button.red,.widget-button.red){
+ background-color:#30315c!important;
+ background-image:linear-gradient(165deg,rgba(135,68,164,.35),rgba(30,30,84,.5)),var(--gx-button)!important;
+ border-color:#8b7ac9!important;
+}
+/* Inputs and selection, without changing geometry or hitboxes */
+html.teriash-galaxy :is(.settings-window,.chat-configure-window,.trade-window,.auction-window,.help-window2,.relogger,.mAlert-layer) :is(input:not([type=checkbox]):not([type=radio]),textarea,select){
+ background-color:#091a38!important;background-image:var(--gx-field)!important;
+ background-size:100% 100%!important;border-color:#4b87c9!important;color:#e8f5ff!important;
+}
+html.teriash-galaxy :is(.settings-window,.chat-configure-window,.trade-window,.auction-window,.help-window2,.relogger,.mAlert-layer) :is(input,textarea,select):focus{
+ outline:1px solid rgba(144,219,255,.55)!important;outline-offset:0;
+}
+/* Items / inventory - target backgrounds, not item sprites */
+html.teriash-galaxy :is(.inventory-grid-bg .slot,.inventory-grid .slot,.inventory_wrapper .slot,.equipment-wrapper .slot,.shop-wrapper .slot,.deposit-window .slot,.depo-window .slot):hover{
+ box-shadow:inset 0 0 0 1px rgba(125,221,255,.65),inset 0 0 8px rgba(57,129,230,.3)!important;
+}
+html.teriash-galaxy :is(.inventory-grid-bg .slot,.inventory-grid .slot,.inventory_wrapper .slot,.equipment-wrapper .slot,.shop-wrapper .slot,.deposit-window .slot,.depo-window .slot):is(.active,.selected,.focused){
+ background-image:var(--gx-selected)!important;
+ box-shadow:inset 0 0 10px rgba(124,225,255,.28)!important;
+}
+html.teriash-galaxy .loot-window .items-wrapper .loot-item-wrapper .text-info{color:#d9a6ff!important;text-shadow:0 1px 3px #060d23!important;}
+html.teriash-galaxy :is(.loot-window .items-wrapper,.trade-window .items-wrapper,.chests-window .items-wrapper){border-color:rgba(86,157,225,.4)!important;}
+/* Chat microdetails */
+html.teriash-galaxy :is(.new-chat-window .chat-message-wrapper,.chat-input-wrapper .control-wrapper,.chat-input-wrapper .magic-input-wrapper){
+ border-color:#416fa9!important;box-shadow:inset 0 0 0 1px rgba(113,184,255,.055)!important;
+}
+html.teriash-galaxy .new-chat-window .chat-message-wrapper .new-chat-message:hover{background-color:rgba(96,141,220,.08)!important;}
+html.teriash-galaxy :is(.chat-channel-card-wrapper,.chat-configure-window .middle-graphic){border-color:#4d88c7!important;}
+html.teriash-galaxy .chat-input-wrapper .control-wrapper .chat-config-wrapper .chat-config-wrapper-button{
+ filter:drop-shadow(0 0 2px rgba(86,180,255,.4));
+}
+/* Battle details - leave battle sprites/canvas alone */
+html.teriash-galaxy .battle-controller .battle-content .time-wrapper .time-progress-bar .time-inner{
+ background-image:var(--gx-progress)!important;background-size:100% 100%!important;
+}
+html.teriash-galaxy :is(.battle-controller .battle-content .right-column,.battle-controller .graphics .header-graphic,.battle-controller .graphics .bottom-graphic){
+ border-color:rgba(105,176,248,.58)!important;
+}
+html.teriash-galaxy :is(.battle-controller .battle-content .battle-skill,.battle-controller .battle-skill):hover:not(.disabled){box-shadow:inset 0 0 0 1px rgba(147,227,255,.45)!important;}
+/* Skills, enhancement, rank */
+html.teriash-galaxy :is(.enhance__progress-bg,.enhance__item,.skills-window .left-column .skills-wrapper,.additional-skill-panel){
+ border-color:#4f86c2!important;
+}
+html.teriash-galaxy .enhance__progress--current{
+ background-color:#397cbb!important;background-image:var(--gx-progress)!important;background-size:100% 100%!important;
+}
+html.teriash-galaxy :is(.skills-window .left-column .skills-wrapper .skill,.relogger__one-world,.relogger__one-character):hover:not(.disabled){
+ background-color:rgba(50,100,172,.18)!important;
+}
+/* Minuscule visual details */
+html.teriash-galaxy :is(.new-chat-window,.chat-configure-window,.border-window,.auction-window,.trade-window,.stats-and-history,.settings-window) :is(hr,.divider,.separator){
+ border-color:rgba(108,168,228,.48)!important;
+ background-image:url('../assets/divider.png')!important;background-size:100% 100%!important;
+}
+html.teriash-galaxy :is(.tip-wrapper,.item-tip-section,.info_tooltip_loot,.popup-menu,.toast-messages-container .toast){
+ border-color:#6ca5e2!important;
+ box-shadow:0 6px 18px rgba(0,5,22,.57),inset 0 0 0 1px rgba(151,206,255,.1)!important;
+}
+html.teriash-galaxy .toast-messages-container .toast{color:#e9f6ff!important;background-color:#102345!important;}
+html.teriash-galaxy :is(.header-label,.header-label-positioner,.section-header,.news-panel .news-content .section-header){
+ color:#d7ecff!important;text-shadow:0 1px 2px rgba(0,6,28,.8)!important;
+}
+/* Scrollbar: never change scroll height or element positioning */
+html.teriash-galaxy :is(.new-chat-window,.inventory_wrapper,.border-window,.settings-window,.card-content,.auction-window,.trade-window) *::-webkit-scrollbar{width:7px;height:7px;}
+html.teriash-galaxy :is(.new-chat-window,.inventory_wrapper,.border-window,.settings-window,.card-content,.auction-window,.trade-window) *::-webkit-scrollbar-track{
+ background-color:#08162e;background-image:url('../assets/scroll-track.png');background-size:100% 100%;
+}
+html.teriash-galaxy :is(.new-chat-window,.inventory_wrapper,.border-window,.settings-window,.card-content,.auction-window,.trade-window) *::-webkit-scrollbar-thumb{
+ background-color:#3771b0;background-image:url('../assets/scroll-thumb.png');background-size:100% 100%;border-radius:5px;
+}
+/* NO global filter on img, canvas, game map, items, and no z-index overrides. */
