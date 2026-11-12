@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name         Galaxy - Margonem NI
 // @namespace    https://github.com/Teriash/galaxy-theme
-// @version      1.0.0
+// @version      1.0.1
 // @description  Ciemny, niebiesko-fioletowy motyw Galaxy dla Margonem NI.
+// @icon         https://cdn.jsdelivr.net/gh/Teriash/galaxy-theme@main/assets/galaxy-icon.svg
 // @author       Teriash
 // @match        https://*.margonem.pl/*
 // @exclude      https://www.margonem.pl/*
@@ -23,7 +24,7 @@
   window.__TERIASH_GALAXY_LOADED__ = true;
 
   const BASE = 'https://cdn.jsdelivr.net/gh/Teriash/galaxy-theme@main/';
-  const VERSION = '1.0.0';
+  const VERSION = '1.0.1';
   const STYLESHEET_ID = 'teriash-galaxy-styles';
   const loadCSS = () => {
     if (document.getElementById(STYLESHEET_ID)) return;

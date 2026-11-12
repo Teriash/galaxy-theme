@@ -1,5 +1,5 @@
 /* ============================================================
-   GALAXY — Margonem Nowy Interfejs | 1.0.0
+   GALAXY — Margonem Nowy Interfejs | 1.0.1
    Autor: Teriash
    Kolory i zachowanie mozna modyfikowac w sekcji :root.
    CSS celowo NIE ustawia pozycji slotow, wymiarow HUD ani
@@ -32,8 +32,8 @@ html.teriash-galaxy :is(
   .quest-window, .friends-window, .clan-window
 ) {
   background-color: var(--gx-deep) !important;
-  background-image: linear-gradient(145deg, rgba(41,80,155,.23), transparent 52%),
-                    linear-gradient(160deg, #101e3e 0%, #09112a 100%) !important;
+  background-image: linear-gradient(160deg, rgba(6,14,34,.63), rgba(10,19,46,.78)), url("../assets/galaxy-nebula.svg") !important;
+  background-size: cover !important;
   color: var(--gx-text) !important;
   border-color: rgba(86,153,241,.5) !important;
 }
@@ -43,7 +43,7 @@ html.teriash-galaxy :is(
   .dialog-header, .modal-header, .header-bar,
   .inventory-header, .shop-header, .guild-header
 ) {
-  background: linear-gradient(90deg, #0c2149, #1c3269 55%, #24194e) !important;
+  background: #102950 url("../assets/galaxy-header.svg") center / 100% 100% no-repeat !important;
   color: #f0f7ff !important;
   border-color: #4779be !important;
   text-shadow: 0 1px 3px #01030e !important;
@@ -55,7 +55,7 @@ html.teriash-galaxy :is(
   .main-menu, .menu-bar, .quick-menu, .action-bar,
   .interface-bar, .game-bar, .hud-bar
 ) {
-  background: linear-gradient(180deg, #1b3165 0%, #0a1430 82%) !important;
+  background: #0d1c3c url("../assets/galaxy-header.svg") center / 100% 100% no-repeat !important;
   border-color: #356ab0 !important;
   color: var(--gx-text) !important;
 }
@@ -67,6 +67,7 @@ html.teriash-galaxy :is(
   .clan-list, .friends-list, .players-list
 ) {
   background-color: rgba(9, 17, 39, .95) !important;
+  background-image: linear-gradient(rgba(6,12,30,.95),rgba(6,12,30,.95)), url("../assets/galaxy-stars.svg") !important;
   color: var(--gx-text) !important;
   border-color: #315b99 !important;
 }
@@ -85,7 +86,8 @@ html.teriash-galaxy :is(
   .shop .slot, .depo .slot, .deposit .slot, .bag .slot
 ) {
   background-color: var(--gx-slot) !important;
-  background-image: linear-gradient(135deg, rgba(56,109,190,.20), rgba(9,18,39,.30)) !important;
+  background-image: url("../assets/galaxy-slot.svg") !important;
+  background-size: 100% 100% !important;
   border: 1px solid var(--gx-slot-edge) !important;
   box-shadow: inset 0 0 0 1px rgba(3,8,24,.5), inset 0 0 10px rgba(46,95,174,.16) !important;
   box-sizing: border-box !important;
