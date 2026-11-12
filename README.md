@@ -1,15 +1,11 @@
-# Teriash Galaxy Theme (PNG)
+# Teriash Galaxy 3.0 — Margonem NI
 
-Kompletny motyw Galaxy do Margonem NI.
+**Instalacja:** otworz `install/teriash-galaxy.user.js` w Tampermonkey lub przeciagnij plik do przegladarki i zainstaluj. Nie wymaga GitHuba, jsDelivr ani pobierania dodatkowych plikow.
 
-## Struktura
-- `install/galaxy.user.js` — skrypt instalacyjny Tampermonkey
-- `css/galaxy.css` — glowny arkusz stylow
-- `scripts/galaxy.js` — drobne opcje motywu
-- `assets/*.png` — grafiki motywu w formacie PNG
+**Zawartosc:** `install/teriash-galaxy.user.js` ma caly CSS i grafiki PNG osadzone jako data URI. Foldery `css/` oraz `assets/` zawieraja edytowalne zrodla.
 
-## Instalacja
-1. Wrzuć wszystko do publicznego repozytorium `Teriash/galaxy-theme`.
-2. Poczekaj chwilę aż jsDelivr odświeży pliki.
-3. Zainstaluj `install/galaxy.user.js` przez Tampermonkey.
-4. Otwórz Margonem NI i odśwież stronę.
+**Diagnostyka w konsoli przegladarki:** `GalaxyTheme.debug()`.
+
+**Wylaczenie motywu w konsoli:** `GalaxyTheme.disable()`. Wlaczenie: `GalaxyTheme.enable()`.
+
+**Wazne:** uwzgledniono rzeczywiste selektory wielu elementow Margonem NI. Bez testow w Twojej aktualnej wersji klienta nie da sie zagwarantowac poprawnej podmiany absolutnie kazdej tekstury. Nie jest to kopia oryginalnego kodu Winter Atelier; wykorzystuje podobna architekture oraz niezaleznie przygotowane elementy graficzne.

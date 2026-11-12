@@ -202,3 +202,202 @@ html.teriash-galaxy.galaxy-flat :is(.window,.widget,.panel,.dialog,.modal,.popup
  background-image:none!important;
  background-color:#0b1732!important;
 }
+
+
+/* =============================================================
+   GALAXY 3.0 -- RZECZYWISTE SELEKTORY MARGONEM NOWY INTERFEJS
+   Nie zmieniamy pozycji elementow, wymiarow siatek ani z-index.
+   ============================================================= */
+:root.teriash-galaxy {
+  color-scheme:dark;
+  --galaxy-outline:#447dbf;
+  --galaxy-hi:#9be6ff;
+  --galaxy-wood:#11234b;
+}
+/* TOP HUD, HERO, WORLD, HP/MP, MAP BORDER */
+html.teriash-galaxy .layer.interface-layer .positioner.top .bg,
+html.teriash-galaxy .layer.interface-layer .positioner.bottom .bg,
+html.teriash-galaxy .layer.interface-layer .positioner.top,
+html.teriash-galaxy .layer.interface-layer .positioner.bottom {
+  background-color:#071832!important;
+  background-image:var(--gx-bar)!important;
+  background-size:100% 100%!important;
+  border-color:#477bb8!important;
+}
+html.teriash-galaxy .layer.interface-layer .positioner.top .hud-container .hero-data .heroname,
+html.teriash-galaxy :is(.world-name,.location,.coords,.herogold,.herocredits,.h-gold,.h-gold-limit){
+  color:#cfebff!important;text-shadow:0 1px 3px #000a1d!important;
+}
+html.teriash-galaxy .layer.interface-layer .main-column.right-column .border,
+html.teriash-galaxy .layer.interface-layer .main-column .extended-stats,
+html.teriash-galaxy .right-column .inner-wrapper .battle-set-wrapper,
+html.teriash-galaxy .right-column .inner-wrapper .battle-set-wrapper .battle-set-choice {
+  background-color:#0b1a39!important;
+  background-image:var(--gx-panel-art)!important;
+  background-size:100% 100%!important;
+  border-color:#4a85c2!important;
+}
+/* LEFT GAME WINDOW: REAL INVENTORY ELEMENTS */
+html.teriash-galaxy .game-window-positioner .inventory_wrapper .inventory-grid-bg,
+html.teriash-galaxy .game-window-positioner .inventory_wrapper .bags-navigation,
+html.teriash-galaxy .game-window-positioner .character_wrapper .equipment-wrapper,
+html.teriash-galaxy .game-window-positioner .character_wrapper .stats-wrapper {
+  background-color:#0c1c3a!important;
+  background-image:var(--gx-panel-art)!important;
+  background-size:100% 100%!important;
+  border-color:#427fbd!important;
+}
+html.teriash-galaxy .game-window-positioner .inventory_wrapper .bags-navigation .item {
+  background-color:#102852!important;
+  background-image:var(--gx-button)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  outline:1px solid #467fc0!important;
+  outline-offset:-1px!important;
+}
+/* INDIVIDUAL SLOTS - sizes and coordinates remain game controlled */
+html.teriash-galaxy :is(
+ .inventory-grid .slot,.inventory-grid-bg .slot,.inventory-grid .item-slot,
+ .inventory_wrapper .slot,.inventory_wrapper .slot-bg,
+ .equipment-wrapper .slot,.equipment-wrapper .equipment-slot,
+ .shop-content .slot,.shop-wrapper .slot,.deposit-window .slot,
+ .depo-window .slot,.loot-window .items-wrapper .loot-item-wrapper .slot,
+ .bags-navigation .item,.inventory-grid .item:not([data-item-type])
+) {
+  background-color:#0c1d3d!important;
+  background-image:var(--gx-slot)!important;
+  background-size:100% 100%!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  border-color:#4a86c6!important;
+}
+/* Never paint the actual item artwork, which can have its own spritesheet. */
+html.teriash-galaxy :is(.inventory-grid,.inventory_wrapper,.equipment-wrapper,.shop-wrapper,.depo-window) .item[data-item-type] {
+  background-color:transparent;
+}
+/* UNDER WINDOWS, WOOD, SPECIAL SHOPS */
+html.teriash-galaxy :is(
+ .gold-shop .footer .bottom-panel-graphics,
+ .stamina-shop .footer .bottom-panel-graphics,
+ .chests-window .chests-bottom-panel,
+ .matchmaking-summary .bottom-panel-graphics,
+ .news-panel .news-content .section-header,
+ .console-window .console-bottom-panel-wrapper .console-bottom-panel,
+ .stats-and-history .season-wnd .middle-wood.active,
+ .shop-wrapper .shop-content .shop-bottom-panel,
+ .shop-wrapper .shop-content .shop-bottom-panel .chest-wrapper
+) {
+  background-color:#112a50!important;
+  background-image:var(--gx-header)!important;
+  background-size:100% 100%!important;
+  border-color:#518bd0!important;
+}
+html.teriash-galaxy :is(
+ .news-panel .middle-graphics,.chests-window .brown-background,
+ .stamina-shop .background-graphic,.console-wnd.border-window .content,
+ .chat-configure-window .middle-graphic,.stats-and-history .season-wnd .season-header,
+ .stats-and-history .section .history-bottom-panel,
+ .trade-window header .h_background .left,
+ .trade-window header .h_background .right
+) {
+  background-color:#0d2144!important;
+  background-image:var(--gx-panel-art)!important;
+  background-size:100% 100%!important;
+  border-color:#5e93d1!important;
+  border-image:none!important;
+}
+html.teriash-galaxy :is(
+ .auction-window .main-column-auction,.auction-window .left-column-auction-and-main-column-auction,
+ .news-panel,.chests-window,.gold-shop,.stamina-shop,.trade-window,.shop-wrapper,
+ .settings-window,.help-window2,.stats-and-history,.matchmaking-summary,.card-content
+) {
+  background-color:#091a36!important;
+  color:#dcecff!important;
+  border-color:#447fbf!important;
+}
+html.teriash-galaxy .cards-header-wrapper .cards-header .card,
+html.teriash-galaxy .world-window__tabs,
+html.teriash-galaxy .relogger__one-world,
+html.teriash-galaxy .relogger__one-character,
+html.teriash-galaxy .button,
+html.teriash-galaxy .widget-button,
+html.teriash-galaxy .button.red,
+html.teriash-galaxy .widget-button.red,
+html.teriash-galaxy .mAlert-layer .scroll-wrapper.menu-wrapper .wrapper .bck-wrapper .option {
+  background-color:#142d58!important;
+  background-image:var(--gx-button)!important;
+  background-size:100% 100%!important;
+  border-color:#4d8aca!important;
+  color:#e7f5ff!important;
+  box-shadow:inset 0 0 0 1px rgba(125,195,255,.18)!important;
+}
+html.teriash-galaxy :is(.button,.widget-button) :is(.label,span),
+html.teriash-galaxy .menu-list .bck .menu-option {color:#dcefff!important;}
+html.teriash-galaxy :is(.button,.widget-button,.cards-header-wrapper .card):hover {
+  filter:brightness(1.12);
+}
+/* CHAT: real NI message and input structure */
+html.teriash-galaxy :is(
+ .new-chat-window,.new-chat-window .chat-message-wrapper,.chat-channel-card-wrapper,
+ .chat-input-wrapper .control-wrapper,.chat-input-wrapper .magic-input-wrapper,
+ .chat-input-wrapper .control-wrapper .chat-config-wrapper,
+ .new-chat-message,.magic-input,.chat-configure-window
+) {
+  background-color:#081a36!important;
+  background-image:var(--gx-chat)!important;
+  background-size:cover!important;
+  border-color:#356da8!important;
+  color:#daeaff!important;
+}
+html.teriash-galaxy .new-chat-window .chat-message-wrapper {border-color:rgba(81,142,203,.38)!important;}
+html.teriash-galaxy .new-chat-message.expired-message {opacity:1;}
+html.teriash-galaxy .chat-input-wrapper .magic-input-wrapper :is(input,textarea),
+html.teriash-galaxy .magic-input {color:#f0f8ff!important;}
+/* GAME TOOLTIPS, DROPDOWNS, POPUP MENUS */
+html.teriash-galaxy :is(
+ .tip-wrapper,.tip-wrapper .item-tip-section,.item-tip-section,
+ .info_tooltip_loot,.popup-menu,.popup-menu .menu-item,
+ .mAlert-layer .big-messages .message,.menu-list .bck,
+ .toast-messages-container .toast,.captcha-pre-info
+) {
+  background-color:#0a1a34!important;
+  background-image:var(--gx-tip)!important;
+  background-size:100% 100%!important;
+  color:#dceeff!important;
+  border-color:#609bdd!important;
+}
+html.teriash-galaxy .popup-menu .menu-item:hover {background-color:#204d86!important;}
+html.teriash-galaxy :is(.popup-menu .menu-item.disabled,.popup-menu .menu-item.cooldown-disabled){opacity:.65;}
+/* BATTLE chrome - avoid touching battle rendering and canvas */
+html.teriash-galaxy :is(
+ .battle-controller .graphics .header-graphic,
+ .battle-controller .graphics .middle-graphic,
+ .battle-controller .graphics .bottom-graphic,
+ .battle-controller .battle-content .right-column,
+ .battle-controller .skill-hider
+) {
+  background-color:#0d2044!important;
+  background-image:var(--gx-panel-art)!important;
+  background-size:100% 100%!important;
+  border-color:#477bb5!important;
+}
+html.teriash-galaxy .battle-controller .battle-content .time-wrapper .time-progress-bar::after {
+  background:#08162d!important;border:1px solid #477eb7!important;
+}
+html.teriash-galaxy .battle-controller .battle-content .time-wrapper .time-progress-bar .time-inner {
+  background:linear-gradient(90deg,#2d65bb,#86dfff)!important;
+}
+html.teriash-galaxy .battle-msg.neu {background:linear-gradient(#142d4f,#071932)!important;color:#e4f3ff!important;}
+html.teriash-galaxy .battle-msg.attack {background:linear-gradient(#164a50,#0a222b)!important;}
+html.teriash-galaxy .battle-msg.attack2 {background:linear-gradient(#6a274c,#281332)!important;}
+/* SIDEBARS, QUESTS, COMMUNITY, STATS */
+html.teriash-galaxy :is(
+ .additional-skill-panel,.extended-stats,.extended-stats .scroll-pane,
+ .card-content .clan-members-content,.stats-and-history .section,
+ .character_wrapper .stats-list,.relogger__header,.news-classic-tile,
+ .right-column .inner-wrapper,.game-window-positioner .character_wrapper
+) {color:#dceaff!important;border-color:#477fb8!important;}
+html.teriash-galaxy .extended-stats .scroll-pane h3 {color:#b8e8ff!important;border-bottom-color:#477bb8!important;}
+html.teriash-galaxy .new-chat-window :is(*::-webkit-scrollbar-thumb),
+html.teriash-galaxy .inventory_wrapper :is(*::-webkit-scrollbar-thumb) {background:#356da8!important;}
+/* Render sprite icons and item images unchanged: no global img/canvas filter. */
