@@ -1,18 +1,18 @@
-# Teriash Galaxy 3.1 — detale PNG
+# Teriash Galaxy 3.2 — Ultra Details
 
-Motyw Margonem Nowy Interfejs. Samodzielny plik Tampermonkey: `install/teriash-galaxy.user.js`.
+Nowa wersja samodzielnego motywu do Margonem Nowy Interfejs. Bez GitHuba i CDN.
 
 ## Instalacja
-1. Wyłącz inne motywy Margonem NI (w tym Galaxy 3.0 / Winter Atelier).
-2. Zainstaluj `teriash-galaxy.user.js` w Tampermonkey.
-3. Odśwież grę klawiszami Ctrl+F5.
-4. W konsoli (F12) sprawdź `GalaxyTheme.debug()`.
+1. Wyłącz Winter Atelier oraz starsze wersje Galaxy w Tampermonkey.
+2. Zainstaluj `install/teriash-galaxy.user.js`.
+3. Odśwież kartę Margonem NI za pomocą Ctrl+F5.
 
-## Zawartość
-- Główne style CSS z rzeczywistymi selektorami NI oraz dodatkowymi detalami.
-- Grafiki PNG: tła, belki, sloty, okna, narożniki, zakładki, pola, paski i tooltipy.
-- Wszystkie zasoby są osadzone w pliku instalacyjnym. Nie potrzebujesz GitHuba ani CDN.
-- Pliki `assets` i `css` w ZIP-ie są też do dalszej edycji.
+## Co poprawiono
+- Bardziej szczegółowe belki górne/dolne, ramki okien i panele HUD.
+- Drobne stany slotów (puste, aktywne, hover), zakładek i przycisków.
+- Dodatkowe ramki, elementy formularzy, paski, tooltipy, obszary walki, panel klanu, zadania i minmapa.
+- Wbudowane 35 autorskich tekstur PNG, bez zewnętrznych adresów.
+- Diagnostyka selektorów poprzez `GalaxyTheme.debug()` w konsoli gry.
 
-## Ważne
-To autorska stylistyka inspirowana sposobem działania Winter Atelier. Nie jest to przerobiona kopia wszystkich oryginalnych grafik. Różne wersje Margonem NI mogą wymagać dopasowania selektorów po testach w grze. Nie zmieniamy wymiarów, pozycji ani z-indexu elementów gry.
+## Ograniczenia
+Bazowano na sposobie działania Winter Atelier i dostępnych wzorcach NI, ale nie pozyskano pełnej treści jego zminifikowanego CSS ani wszystkich oryginalnych grafik, więc nie jest to kompletna zgodność 1:1. Motyw nie został przetestowany w zalogowanym kliencie Margonem. Nie zmienia sprite'ów przedmiotów, mapy, pozycji okien ani ich `z-index`.

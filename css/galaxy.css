@@ -549,3 +549,122 @@ html.teriash-galaxy :is(.new-chat-window,.inventory_wrapper,.border-window,.sett
  background-color:#3771b0;background-image:url('../assets/scroll-thumb.png');background-size:100% 100%;border-radius:5px;
 }
 /* NO global filter on img, canvas, game map, items, and no z-index overrides. */
+
+
+/* ============================================================
+   TERIASH GALAXY 3.2 — UI DETAIL EXTENSION
+   WARSTWY: dekoracje, nie geometria UI. Gra oraz item sprites bez zmian.
+   ============================================================ */
+html.teriash-galaxy {
+ --gx-ornament:url('../assets/window-ornament.png');
+ --gx-empty-slot:url('../assets/slot-empty.png');
+ --gx-hover-slot:url('../assets/slot-hover.png');
+ --gx-tag:url('../assets/tag.png');
+ --gx-thin-divider:url('../assets/thin-divider.png');
+ --gx-hud-top:url('../assets/hud-top.png');
+ --gx-hud-bottom:url('../assets/hud-bottom.png');
+ --gx-micro-stars:url('../assets/micro-stars.png');
+ --gx-health-track:url('../assets/health-track.png');
+ --gx-progress-blue:url('../assets/progress-blue.png');
+ --gx-mini-button:url('../assets/mini-button.png');
+ --gx-focus-outline:url('../assets/focus-outline.png');
+}
+/* Decorative layer for NI's top/bottom wood graphics */
+html.teriash-galaxy .layer.interface-layer .positioner.top .bg {
+ background-image:linear-gradient(90deg,rgba(7,12,29,.12),rgba(34,32,94,.16)),var(--gx-hud-top)!important;
+ background-size:100% 100%!important;
+}
+html.teriash-galaxy .layer.interface-layer .positioner.bottom .bg {
+ background-image:linear-gradient(90deg,rgba(7,12,29,.18),rgba(34,32,94,.12)),var(--gx-hud-bottom)!important;
+ background-size:100% 100%!important;
+}
+/* Small frames: top/bottom trim and borders, without pseudo-element overlays */
+html.teriash-galaxy :is(.border-window,.world-window,.chat-configure-window,.console-wnd.border-window,.mAlert-layer .message,.battle-controller .battle-content .right-column) {
+ border-color:#669ddd!important;
+ box-shadow:0 5px 24px rgba(3,7,25,.59),inset 0 0 0 1px rgba(133,216,255,.16),inset 0 3px 12px rgba(45,91,155,.13)!important;
+}
+html.teriash-galaxy :is(.border-window .header,.world-window .header,.chat-configure-window .header,.console-wnd.border-window .header,.mAlert-layer .header) {
+ background-image:var(--gx-header)!important;
+ background-color:#10264d!important;background-size:100% 100%!important;
+ border-bottom-color:#6ba7e9!important;color:#e6f5ff!important;
+}
+html.teriash-galaxy :is(.border-window .footer,.world-window .footer,.chat-configure-window .footer,.mAlert-layer .footer) {
+ background-image:var(--gx-hud-bottom)!important;
+ background-color:#0b1d3b!important;background-size:100% 100%!important;
+ border-top-color:#3b6caa!important;
+}
+/* Popup / shop / party / crafting / auction inner panels */
+html.teriash-galaxy :is(.shop-window,.auction-window,.trade-window,.craft-window,.party-window,.enhance-window,.skills-window,.quest-window,.guild-window,.clan-window,.mail-window,.settings-window,.help-window2,.relogger) :is(.inner-wrapper,.main-column,.left-column,.right-column,.content-wrapper,.scroll-wrapper) {
+ border-color:rgba(82,147,211,.48)!important;color:#e0efff!important;
+}
+html.teriash-galaxy :is(.trade-window,.shop-window,.auction-window,.deposit-window,.depo-window,.inventory_wrapper,.equipment-wrapper) :is(.slot-empty,.empty-slot,.slot:empty,.inventory-slot:empty,.item-slot:empty) {
+ background-color:#0c1c3b!important;
+ background-image:var(--gx-empty-slot)!important;
+ background-repeat:no-repeat!important;background-size:100% 100%!important;
+}
+html.teriash-galaxy :is(.inventory_wrapper,.equipment-wrapper,.shop-window,.deposit-window,.depo-window,.trade-window) :is(.item-slot,.inventory-slot,.equipment-slot,.shop-slot,.deposit-slot,.slot):hover {
+ border-color:#92dfff!important;
+ box-shadow:inset 0 0 0 1px rgba(140,225,255,.55),inset 0 0 11px rgba(53,130,230,.21)!important;
+}
+/* Bag tabs, category filters, small controls and active tabs */
+html.teriash-galaxy :is(.bags-navigation .item,.cards-header-wrapper .cards-header .card,.chat-channel-card-wrapper,.world-window__tabs .tab,.settings-window .tab,.auction-window .tab) {
+ border-color:#477caf!important;color:#dcecff!important;
+}
+html.teriash-galaxy :is(.bags-navigation .item.active,.cards-header-wrapper .cards-header .card.active,.chat-channel-card-wrapper.active,.world-window__tabs .tab.active) {
+ background-image:var(--gx-tab)!important;
+ box-shadow:inset 0 -2px 0 rgba(134,222,255,.38),0 0 6px rgba(65,115,238,.19)!important;
+}
+html.teriash-galaxy :is(.popup-menu,.context-menu,.new-chat-window,.chat-configure-window) :is(.separator,.divider,hr) {
+ background-image:var(--gx-thin-divider)!important;background-size:100% 100%!important;border-color:#477eaf!important;
+}
+/* Form elements, radial selections & focus clarity */
+html.teriash-galaxy :is(.settings-window,.trade-window,.shop-window,.auction-window,.chat-configure-window,.mAlert-layer,.relogger) :is(input:not([type=checkbox]):not([type=radio]),textarea,select):focus {
+ outline:1px solid #92dfff!important;box-shadow:0 0 0 2px rgba(52,125,220,.22)!important;
+}
+html.teriash-galaxy :is(.settings-window,.chat-configure-window,.mAlert-layer,.relogger) input[type=checkbox],
+html.teriash-galaxy :is(.settings-window,.chat-configure-window,.mAlert-layer,.relogger) input[type=radio] {accent-color:#61baff;}
+/* HP/MP/EXP decoration only: do not recolor semantic values */
+html.teriash-galaxy :is(.health-bar,.mana-bar,.experience-bar,.exp-bar,.hp-bar,.mp-bar,.progress-bar,.time-progress-bar) {
+ border-color:#4c85c0!important;box-shadow:inset 0 1px 4px rgba(0,8,28,.6)!important;
+}
+html.teriash-galaxy :is(.exp-bar,.experience-bar,.progress-bar) :is(.inner,.progress-inner,.fill,.bar-fill) {
+ background-image:var(--gx-progress-blue)!important;background-size:100% 100%!important;
+}
+/* Action buttons and small clickable graphics */
+html.teriash-galaxy :is(.popup-menu,.border-window,.world-window,.settings-window,.chat-configure-window,.mAlert-layer) :is(.button,.btn,.widget-button,.tab-button) {
+ border-color:#5b94d1!important;color:#e6f4ff!important;text-shadow:0 1px 2px #050e23!important;
+}
+html.teriash-galaxy :is(.popup-menu,.border-window,.world-window,.settings-window,.chat-configure-window,.mAlert-layer) :is(.button,.btn,.widget-button,.tab-button):hover {
+ border-color:#a0e9ff!important;filter:brightness(1.12);
+}
+/* Quest log, clan and player lists */
+html.teriash-galaxy :is(.quest-window,.guild-window,.clan-window,.friends-window,.party-window,.ranking-window,.card-content .clan-members-content) :is(.list-item,.row,.entry,.quest,.member) {
+ border-bottom-color:rgba(70,141,210,.3)!important;
+}
+html.teriash-galaxy :is(.quest-window,.guild-window,.clan-window,.friends-window,.party-window,.ranking-window) :is(.list-item,.row,.entry,.quest,.member):hover {
+ background-color:rgba(45,105,190,.13)!important;
+}
+/* Toast notifications and tooltip panels; preserve layering */
+html.teriash-galaxy :is(.toast-messages-container .toast,.tip-wrapper,.item-tooltip,.game-tooltip,.context-menu,.popup-menu) {
+ border-color:#76abe8!important;box-shadow:0 7px 22px rgba(0,5,22,.62),inset 0 0 0 1px rgba(170,231,255,.1)!important;
+}
+html.teriash-galaxy :is(.tip-wrapper,.item-tooltip,.game-tooltip,.popup-menu,.context-menu) {
+ color:#e5f3ff!important;background-color:#0b1b39!important;
+}
+/* Decorative separators inside stats and item info */
+html.teriash-galaxy :is(.character_wrapper,.extended-stats,.stats-and-history,.item-tip-section,.character-panel) :is(hr,.divider,.separator) {
+ background-image:var(--gx-thin-divider)!important;background-size:100% 100%!important;
+}
+/* Battle action area, result boxes, logs */
+html.teriash-galaxy :is(.battle-controller .battle-content .right-column,.battle-controller .graphics .header-graphic,.battle-controller .graphics .bottom-graphic,.battle-log-window,.battle-msg) {
+ border-color:rgba(104,174,240,.65)!important;
+}
+html.teriash-galaxy .battle-controller .battle-content .time-wrapper .time-progress-bar .time-inner {
+ background-image:var(--gx-progress-blue)!important;background-size:100% 100%!important;
+}
+/* Minimap frame and map controls, not canvas or map tiles */
+html.teriash-galaxy :is(.mini-map .mini-map-global-content,.mini-map .search-wrapper,.mini-map .map-controls) {
+ border-color:rgba(86,156,223,.55)!important;
+}
+/* Remove any accidental unwanted global body background; don't touch map. */
+/* No universal selectors affecting img/canvas, no z-index, no layout changes. */
