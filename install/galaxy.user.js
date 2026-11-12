@@ -1,43 +1,65 @@
 // ==UserScript==
 // @name         Teriash Galaxy - Margonem NI
-// @namespace    https://github.com/Teriash/galaxy-theme
-// @version      2.0.0
-// @description  Kosmiczny motyw Galaxy: okna, belki, chat, sloty, depozyt, sklep i HUD w granacie i fiolecie.
+// @namespace    Teriash/MotywyNI/Galaxy
+// @version      2.1.0
 // @author       Teriash
-// @icon         https://raw.githubusercontent.com/Teriash/galaxy-theme/main/assets/icon.svg
+// @icon         https://cdn.jsdelivr.net/gh/Teriash/galaxy-theme@main/assets/icon.png
+// @description  Galaxy theme do Margonem NI - wersja PNG + jsDelivr.
 // @match        https://*.margonem.pl/*
+// @exclude      https://margonem.pl/*
 // @exclude      https://www.margonem.pl/*
 // @exclude      https://forum.margonem.pl/*
 // @exclude      https://pomoc.margonem.pl/*
-// @updateURL    https://raw.githubusercontent.com/Teriash/galaxy-theme/main/install/galaxy.user.js
-// @downloadURL  https://raw.githubusercontent.com/Teriash/galaxy-theme/main/install/galaxy.user.js
-// @run-at       document-end
+// @updateURL    https://cdn.jsdelivr.net/gh/Teriash/galaxy-theme@main/install/galaxy.user.js
+// @downloadURL  https://cdn.jsdelivr.net/gh/Teriash/galaxy-theme@main/install/galaxy.user.js
 // @grant        none
+// @sandbox      raw
+// @run-at       document-end
 // @noframes
 // ==/UserScript==
 
-(() => {
- 'use strict';
- const match=/^([a-z0-9-]+)\.margonem\.pl$/i.exec(location.hostname);
- if(!match||['www','forum','pomoc'].includes(match[1].toLowerCase()))return;
- if(window.__TERIASH_GALAXY_INSTALL_V2__)return;
- window.__TERIASH_GALAXY_INSTALL_V2__=true;
- const BASE='https://raw.githubusercontent.com/Teriash/galaxy-theme/main/';
- const VERSION='2.0.0';
- const add=()=>{
-  document.documentElement.classList.add('teriash-galaxy');
-  if(!document.getElementById('teriash-galaxy-css')){
-   const css=document.createElement('link');css.id='teriash-galaxy-css';css.rel='stylesheet';
-   css.href=BASE+'css/galaxy.css?v='+VERSION;
-   css.onerror=()=>console.warn('[Galaxy] Nie mozna pobrac arkusza CSS. Sprawdz publiczne repo i sciezki.');
-   document.head.appendChild(css);
+(function(){
+  'use strict';
+  const m=/^([a-z0-9-]+)\.margonem\.pl$/i.exec(location.hostname);
+  if(!m||/^(www|forum|pomoc)$/i.test(m[1])) return;
+  if(window.__TERIASH_GALAXY_V210__) return;
+  window.__TERIASH_GALAXY_V210__=true;
+
+  const cssId='teriash-galaxy-css';
+  const jsId='teriash-galaxy-js';
+  const base='https://cdn.jsdelivr.net/gh/Teriash/galaxy-theme@main/';
+  const version='2.1.0';
+
+  function applyRootClass(){
+    document.documentElement.classList.add('teriash-galaxy');
+    if(document.body) document.body.classList.add('teriash-galaxy-body');
   }
-  if(!document.getElementById('teriash-galaxy-js')){
-   const js=document.createElement('script');js.id='teriash-galaxy-js';
-   js.src=BASE+'scripts/galaxy.js?v='+VERSION;
-   js.onerror=()=>console.warn('[Galaxy] Nie mozna pobrac skryptu Galaxy.');
-   document.head.appendChild(js);
+
+  function injectCss(){
+    if(document.getElementById(cssId)) return;
+    const link=document.createElement('link');
+    link.id=cssId;
+    link.rel='stylesheet';
+    link.href=base+'css/galaxy.css?v='+encodeURIComponent(version);
+    link.onerror=()=>console.warn('[Galaxy] Nie udalo sie zaladowac CSS z jsDelivr. Sprawdz czy repo jest publiczne i czy pliki sa na branchu main.');
+    document.head.appendChild(link);
   }
- };
- if(document.head)add();else document.addEventListener('DOMContentLoaded',add,{once:true});
+
+  function injectJs(){
+    if(document.getElementById(jsId)) return;
+    const script=document.createElement('script');
+    script.id=jsId;
+    script.src=base+'scripts/galaxy.js?v='+encodeURIComponent(version);
+    script.onerror=()=>console.warn('[Galaxy] Nie udalo sie zaladowac skryptu galaxy.js z jsDelivr.');
+    document.head.appendChild(script);
+  }
+
+  function init(){
+    applyRootClass();
+    injectCss();
+    injectJs();
+  }
+
+  if(document.head) init();
+  else document.addEventListener('DOMContentLoaded', init, {once:true});
 })();

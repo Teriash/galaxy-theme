@@ -1,17 +1,26 @@
-/* Galaxy NI 2.0 — autorski motyw Teriash. Wersja wizualna, bez zmian mechaniki. */
 html.teriash-galaxy {
- --gx-bg:#070f26;--gx-panel:#101e3d;--gx-panel-2:#172b50;
- --gx-edge:#4a82be;--gx-blue:#4b9eff;--gx-cyan:#8ae5ff;
- --gx-purple:#8b76e8;--gx-text:#e4f2ff;--gx-muted:#a9c4e7;
+ --gx-bg:#070f26;
+ --gx-panel:#101e3d;
+ --gx-panel-2:#172b50;
+ --gx-edge:#4a82be;
+ --gx-blue:#4b9eff;
+ --gx-cyan:#8ae5ff;
+ --gx-purple:#8b76e8;
+ --gx-text:#e4f2ff;
+ --gx-muted:#a9c4e7;
  --gx-shadow:0 5px 22px rgba(0,4,20,.55);
- --gx-nebula:url('../assets/nebula.svg');--gx-panel-art:url('../assets/panel.svg');
- --gx-header:url('../assets/header.svg');--gx-bar:url('../assets/bar.svg');
- --gx-slot:url('../assets/slot.svg');--gx-selected:url('../assets/slot-active.svg');
- --gx-button:url('../assets/button.svg');--gx-chat:url('../assets/chat.svg');
- --gx-tip:url('../assets/tooltip.svg');
+ --gx-nebula:url('../assets/nebula.png');
+ --gx-panel-art:url('../assets/panel.png');
+ --gx-header:url('../assets/header.png');
+ --gx-bar:url('../assets/bar.png');
+ --gx-slot:url('../assets/slot.png');
+ --gx-selected:url('../assets/slot-active.png');
+ --gx-button:url('../assets/button.png');
+ --gx-chat:url('../assets/chat.png');
+ --gx-tip:url('../assets/tooltip.png');
 }
-/* No global div selectors, no position or z-index overrides, no game map/canvas edits. */
-/* 01. Main windows, popups, dialogs, inventories */
+html.teriash-galaxy body{background-color:var(--gx-bg)!important;}
+
 html.teriash-galaxy :is(
  .window,.window-content,.window-container,.window-body,.window-inner,
  .widget,.widget-content,.widget-body,.panel,.panel-content,.panel-body,
@@ -29,9 +38,10 @@ html.teriash-galaxy :is(
  background-color:var(--gx-panel)!important;
  background-image:linear-gradient(130deg,rgba(4,11,30,.65),rgba(10,16,43,.38)),var(--gx-panel-art)!important;
  background-size:cover!important;
- border-color:var(--gx-edge)!important;color:var(--gx-text)!important;
+ border-color:var(--gx-edge)!important;
+ color:var(--gx-text)!important;
 }
-/* 02. Decorative wooden strips and panel headers, scoped to UI sections */
+
 html.teriash-galaxy :is(
  .window-header,.window-title,.window-top,.widget-header,.panel-header,
  .dialog-header,.modal-header,.popup-header,.header-bar,
@@ -41,13 +51,16 @@ html.teriash-galaxy :is(
  [class*="window__header"],[class*="panel__header"],
  [class*="-window-header"],[class*="-panel-header"]
 ) {
- background-color:#152e59!important;background-image:var(--gx-header)!important;
- background-position:center!important;background-size:100% 100%!important;
- border-color:#5489cc!important;color:#edf7ff!important;
+ background-color:#152e59!important;
+ background-image:var(--gx-header)!important;
+ background-position:center!important;
+ background-size:100% 100%!important;
+ border-color:#5489cc!important;
+ color:#edf7ff!important;
  text-shadow:0 1px 3px #030920!important;
  box-shadow:inset 0 -1px 0 rgba(107,206,255,.36)!important;
 }
-/* 03. HUD bars, quick actions, right and left game interface */
+
 html.teriash-galaxy :is(
  .top-bar,.bottom-bar,.top-panel,.bottom-panel,.main-menu,.menu-bar,
  .quick-menu,.action-bar,.quick-bar,.interface-bar,.game-bar,.hud-bar,
@@ -56,30 +69,36 @@ html.teriash-galaxy :is(
  [class*="top-bar"],[class*="bottom-bar"],[class*="right-panel"],
  [class*="action-bar"],[class*="quick-bar"]
 ) {
- background-color:#0c1c3b!important;background-image:var(--gx-bar)!important;
- background-size:100% 100%!important;border-color:#3a75bb!important;
+ background-color:#0c1c3b!important;
+ background-image:var(--gx-bar)!important;
+ background-size:100% 100%!important;
+ border-color:#3a75bb!important;
  color:var(--gx-text)!important;
 }
-/* 04. Window borders and ornamental panels */
+
 html.teriash-galaxy :is(.window,.widget,.dialog,.modal,.popup,.inventory,.shop,.depo,.deposit,.equipment,.guild-window,.clan-window) {
  border-color:rgba(93,166,239,.65)!important;
  box-shadow:var(--gx-shadow),inset 0 0 0 1px rgba(114,202,255,.08)!important;
 }
-/* 05. Chat and battle logs */
+
 html.teriash-galaxy :is(
  .chat,.chat-window,.chat-container,.chat-content,.chat-messages,.chat-panel,
  .chat-log,.chat-box,.battle-log,.battlelog,.battle-log-window,.log-window,
  .battle-chat,.combat-log,.chat-tabs,.chat-tab-content,
  [class*="chat__messages"],[class*="chat-window"],[class*="battle-log"]
 ) {
- background-color:#07142e!important;background-image:linear-gradient(rgba(5,13,33,.85),rgba(5,13,33,.85)),var(--gx-chat)!important;
- background-size:cover!important;border-color:#34659b!important;color:var(--gx-text)!important;
+ background-color:#07142e!important;
+ background-image:linear-gradient(rgba(5,13,33,.85),rgba(5,13,33,.85)),var(--gx-chat)!important;
+ background-size:cover!important;
+ border-color:#34659b!important;
+ color:var(--gx-text)!important;
 }
 html.teriash-galaxy :is(.chat,.chat-window,.chat-container,.battle-log,.battlelog) :is(input,textarea,select) {
- color:var(--gx-text)!important;background:#0b1a39!important;
+ color:var(--gx-text)!important;
+ background:#0b1a39!important;
  border-color:#447fba!important;
 }
-/* 06. Real slot elements; only direct slot selectors, never inventory parent grid. */
+
 html.teriash-galaxy :is(
  .item-slot,.inventory-slot,.equipment-slot,.bag-slot,.shop-slot,
  .deposit-slot,.depo-slot,.depot-slot,.quick-slot,.hotbar-slot,
@@ -89,8 +108,10 @@ html.teriash-galaxy :is(
  [class*="inventory-slot"],[class*="equipment-slot"],[class*="deposit-slot"],
  [class*="depot-slot"],[class*="shop-slot"],[class*="bag-slot"]
 ) {
- background-color:#0b1936!important;background-image:var(--gx-slot)!important;
- background-repeat:no-repeat!important;background-position:center!important;
+ background-color:#0b1936!important;
+ background-image:var(--gx-slot)!important;
+ background-repeat:no-repeat!important;
+ background-position:center!important;
  background-size:100% 100%!important;
  border-color:#426ea4!important;
  box-shadow:inset 0 0 7px rgba(26,77,142,.24)!important;
@@ -99,65 +120,85 @@ html.teriash-galaxy :is(
  .item-slot,.inventory-slot,.equipment-slot,.bag-slot,.shop-slot,.deposit-slot,
  .depo-slot,.depot-slot,.quick-slot,.hotbar-slot,
  .inventory .slot,.equipment .slot,.bag .slot,.shop .slot,.depo .slot,.depot .slot,.deposit .slot
-):hover {border-color:#9be9ff!important;box-shadow:inset 0 0 8px rgba(90,154,240,.26)!important;}
+):hover {
+ border-color:#9be9ff!important;
+ box-shadow:inset 0 0 8px rgba(90,154,240,.26)!important;
+}
 html.teriash-galaxy :is(
  .item-slot,.inventory-slot,.equipment-slot,.bag-slot,.shop-slot,.deposit-slot,
  .depo-slot,.depot-slot,.quick-slot,.hotbar-slot,
  .inventory .slot,.equipment .slot,.shop .slot,.depo .slot,.deposit .slot
 ):is(.active,.selected,.highlighted,.focused) {
- background-image:var(--gx-selected)!important;border-color:#9bf2ff!important;
+ background-image:var(--gx-selected)!important;
+ border-color:#9bf2ff!important;
 }
-/* 07. Inventory grid empty placeholders (only when an actual slot element exists). */
+
 html.teriash-galaxy :is(.inventory,.equipment,.bag,.shop,.depo,.depot,.deposit) :is(.slot:empty,.item-slot:empty,.empty-slot,.slot-empty) {
  background:var(--gx-slot) center/100% 100% no-repeat!important;
 }
-/* 08. Buttons, nav tabs, controls */
-html.teriash-galaxy :is(
- .window,.dialog,.modal,.popup,.panel,.widget,.inventory,.shop,.depo,.depot,.deposit
-) :is(button,.button,[role="button"],.btn,.tab,.tab-button,.nav-button) {
- background-color:#183260!important;background-image:var(--gx-button)!important;
- background-size:100% 100%!important;color:var(--gx-text)!important;
- border-color:#4a8ed2!important;text-shadow:0 1px 2px #071026!important;
+
+html.teriash-galaxy :is(.window,.dialog,.modal,.popup,.panel,.widget,.inventory,.shop,.depo,.depot,.deposit) :is(button,.button,[role="button"],.btn,.tab,.tab-button,.nav-button) {
+ background-color:#183260!important;
+ background-image:var(--gx-button)!important;
+ background-size:100% 100%!important;
+ color:var(--gx-text)!important;
+ border-color:#4a8ed2!important;
+ text-shadow:0 1px 2px #071026!important;
 }
 html.teriash-galaxy :is(.window,.dialog,.modal,.popup,.panel,.widget) :is(button,.button,.btn,.tab,.tab-button):hover {
- border-color:#93edff!important;filter:brightness(1.13);
+ border-color:#93edff!important;
+ filter:brightness(1.13);
 }
 html.teriash-galaxy :is(.window,.dialog,.modal,.popup,.panel,.widget) :is(input:not([type="checkbox"]):not([type="radio"]),textarea,select) {
- background:#0a1834!important;color:#e6f5ff!important;border-color:#4479b2!important;
+ background:#0a1834!important;
+ color:#e6f5ff!important;
+ border-color:#4479b2!important;
 }
-/* 09. Tooltips and context menus, without changing stacking or pointer handling */
+
 html.teriash-galaxy :is(.tooltip,.item-tooltip,.game-tooltip,.item-tip,.tip,
  .context-menu,.dropdown-menu,.popup-menu,.item-context-menu,
  [class*="tooltip__content"],[class*="context-menu"]) {
- background-color:#0c1732!important;background-image:var(--gx-tip)!important;
- background-size:100% 100%!important;color:#ebf6ff!important;border-color:#6aa8e2!important;
+ background-color:#0c1732!important;
+ background-image:var(--gx-tip)!important;
+ background-size:100% 100%!important;
+ color:#ebf6ff!important;
+ border-color:#6aa8e2!important;
  box-shadow:var(--gx-shadow)!important;
 }
-/* 10. Lists, guild, friends, quests, ranking, skill descriptions */
+
 html.teriash-galaxy :is(.guild-window,.clan-window,.friends-window,.quest-window,.ranking-window,.skills-window,.party-window,.group-window) :is(
  .list,.list-item,.row,.entry,.details,.content,.description
-) {color:var(--gx-text)!important;border-color:rgba(91,147,205,.3)!important;}
+) {
+ color:var(--gx-text)!important;
+ border-color:rgba(91,147,205,.3)!important;
+}
 html.teriash-galaxy :is(.guild-window,.clan-window,.friends-window,.quest-window,.ranking-window) :is(.list-item,.row,.entry):hover {
  background-color:rgba(49,105,176,.22)!important;
 }
-/* 11. HP/MP/XP bar frames only; don't overwrite actual progress width */
+
 html.teriash-galaxy :is(.health-bar,.mana-bar,.experience-bar,.exp-bar,.hp-bar,.mp-bar,.progress-bar) {
- border-color:#4c84bf!important;box-shadow:inset 0 1px 4px rgba(5,12,31,.6)!important;
+ border-color:#4c84bf!important;
+ box-shadow:inset 0 1px 4px rgba(5,12,31,.6)!important;
 }
-/* 12. Scrollbars; modern browsers, no element sizing changes */
+
 html.teriash-galaxy :is(.window,.widget,.panel,.chat,.chat-window,.battle-log,.battlelog,.inventory,.shop,.depo,.depot,.deposit,.guild-window) {
- scrollbar-color:#386ba8 #091831;scrollbar-width:thin;
+ scrollbar-color:#386ba8 #091831;
+ scrollbar-width:thin;
 }
-html.teriash-galaxy :is(.window,.widget,.panel,.chat,.chat-window,.battle-log,.battlelog,.inventory,.shop,.depo,.depot,.deposit) *::-webkit-scrollbar{width:7px;height:7px;}
-html.teriash-galaxy :is(.window,.widget,.panel,.chat,.chat-window,.battle-log,.battlelog,.inventory,.shop,.depo,.depot,.deposit) *::-webkit-scrollbar-track{background:#091831 url('../assets/scroll-track.svg') center/100% 100%;}
-html.teriash-galaxy :is(.window,.widget,.panel,.chat,.chat-window,.battle-log,.battlelog,.inventory,.shop,.depo,.depot,.deposit) *::-webkit-scrollbar-thumb{background:#3b79bd url('../assets/scroll-thumb.svg') center/100% 100%;border-radius:6px;}
-/* 13. Decorative separators */
-html.teriash-galaxy :is(.window,.widget,.panel,.dialog,.modal) :is(hr,.divider,.separator){border-color:#38669b!important;background-image:url('../assets/divider.svg')!important;background-size:100% 100%!important;}
-/* 14. Optional stronger nebula variant toggled with settings. */
-html.teriash-galaxy.galaxy-nebula-strong :is(.window,.widget,.panel,.dialog,.modal,.popup,.inventory,.shop,.deposit,.depo,.depot){
+html.teriash-galaxy :is(.window,.widget,.panel,.chat,.chat-window,.battle-log,.battlelog,.inventory,.shop,.depo,.depot,.deposit) *::-webkit-scrollbar { width:7px; height:7px; }
+html.teriash-galaxy :is(.window,.widget,.panel,.chat,.chat-window,.battle-log,.battlelog,.inventory,.shop,.depo,.depot,.deposit) *::-webkit-scrollbar-track { background:#091831 url('../assets/scroll-track.png') center/100% 100%; }
+html.teriash-galaxy :is(.window,.widget,.panel,.chat,.chat-window,.battle-log,.battlelog,.inventory,.shop,.depo,.depot,.deposit) *::-webkit-scrollbar-thumb { background:#3b79bd url('../assets/scroll-thumb.png') center/100% 100%; border-radius:6px; }
+
+html.teriash-galaxy :is(.window,.widget,.panel,.dialog,.modal) :is(hr,.divider,.separator) {
+ border-color:#38669b!important;
+ background-image:url('../assets/divider.png')!important;
+ background-size:100% 100%!important;
+}
+
+html.teriash-galaxy.galaxy-nebula-strong :is(.window,.widget,.panel,.dialog,.modal,.popup,.inventory,.shop,.deposit,.depo,.depot) {
  background-image:linear-gradient(rgba(5,10,25,.42),rgba(4,8,28,.58)),var(--gx-nebula)!important;
 }
-/* 15. Optional compact appearance: reduce decoration, NOT physical layout */
-html.teriash-galaxy.galaxy-flat :is(.window,.widget,.panel,.dialog,.modal,.popup){background-image:none!important;background-color:#0b1732!important;}
-/* 16. Low motion preference: no decorative animation is added by default. */
-/* Safety: no global img, canvas, .item, coordinates, positions, pointer-events or z-index selectors. */
+html.teriash-galaxy.galaxy-flat :is(.window,.widget,.panel,.dialog,.modal,.popup) {
+ background-image:none!important;
+ background-color:#0b1732!important;
+}
