@@ -1,0 +1,114 @@
+/* GALAXY 3.6 | Extra GitHub patch | Nie zmienia rozmiarow, pozycji ani sprite'ow itemow. */
+html.teriash-galaxy {
+  --gx36-slot: url('../assets/galaxy36/slot-frame.png');
+  --gx36-slot-on: url('../assets/galaxy36/slot-selected.png');
+  --gx36-button: url('../assets/galaxy36/micro-button.png');
+  --gx36-button-hover: url('../assets/galaxy36/micro-button-hover.png');
+  --gx36-rail: url('../assets/galaxy36/panel-rail.png');
+  --gx36-title: url('../assets/galaxy36/section-title.png');
+  --gx36-timer: url('../assets/galaxy36/timer-row.png');
+  --gx36-trim: url('../assets/galaxy36/window-trim.png');
+  --gx36-edge: rgba(109,181,243,.58);
+}
+/* Panel postaci / statystyk - nie zmienia wartosci ani kolorow rzadkosci itemow */
+html.teriash-galaxy .game-window-positioner :is(.character_wrapper,.stats-and-history,.stats-wrapper),
+html.teriash-galaxy .character_wrapper .stats-wrapper {
+  border-color:var(--gx36-edge)!important;
+  background-color:#0b1b37!important;
+  background-image:radial-gradient(ellipse at 70% 5%,rgba(88,61,184,.33),transparent 65%),linear-gradient(145deg,#08152d,#15284c)!important;
+}
+html.teriash-galaxy .character_wrapper .stats-wrapper :is(.header,.title,.stats-header),
+html.teriash-galaxy :is(.character_wrapper,.inventory_wrapper) :is(.section-header,.panel-title) {
+  background: #162f5d var(--gx36-title) center / 100% 100% no-repeat!important;
+  color:#e7f4ff!important;
+}
+html.teriash-galaxy .character_wrapper .stats-wrapper .stats-list li {
+  border-bottom:1px solid rgba(92,149,214,.18)!important;
+}
+/* Ramy okien, bez zaslaniania wewnetrznych elementow */
+html.teriash-galaxy :is(.border-window,.world-window,.dialogue-window,.inventory_wrapper,.character_wrapper) :is(.window-header,.header-graphic,.top-graphic,.bottom-graphic,.title-bar) {
+  border-color:var(--gx36-edge)!important;
+  background-color:#112751!important;
+  background-image:var(--gx36-trim)!important;
+  background-size:100% 100%!important;
+}
+/* Puste sloty: tylko tlo elementu slotu, nie kontenera z przedmiotem ani warstwy grafiki itemow */
+html.teriash-galaxy :is(.inventory_wrapper,.equipment-wrapper,.depo,.shop-wrapper) :is(.slot:empty,.empty-slot,.slot-empty,[class~="empty-slot"]) {
+  background-color:#09172f!important;
+  background-image:var(--gx36-slot)!important;
+  background-size:100% 100%!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+}
+html.teriash-galaxy :is(.inventory_wrapper,.equipment-wrapper,.depo,.shop-wrapper) :is(.slot,.item-slot,.inventory-slot,.equipment-slot) {
+  border-color:rgba(86,152,221,.48)!important;
+  box-shadow:inset 0 0 0 1px rgba(95,167,234,.12)!important;
+}
+html.teriash-galaxy :is(.inventory_wrapper,.equipment-wrapper,.depo,.shop-wrapper) :is(.slot,.item-slot,.inventory-slot):hover {
+  outline:1px solid rgba(160,227,255,.70)!important;outline-offset:-1px!important;
+}
+html.teriash-galaxy :is(.inventory_wrapper,.equipment-wrapper,.depo,.shop-wrapper) :is(.slot,.item-slot):is(.active,.selected) {
+  box-shadow:inset 0 0 0 2px #a6eaff,inset 0 0 9px rgba(86,157,243,.55)!important;
+}
+/* Siatka tła magazynu: nie generujemy falszywych kwadratow i nie zmieniamy wielkosci kratki. */
+html.teriash-galaxy :is(.inventory_wrapper .inventory-grid-bg,.depo .item-section .slots-background,.shop-wrapper .slots-background) {
+  background-color:#0a1932!important;
+  border-color:#4d89c3!important;
+}
+/* Wybieranie workow - zmienia tlo, nie ikony workow. */
+html.teriash-galaxy .inventory_wrapper .bags-navigation .item {
+  border-color:rgba(96,165,228,.65)!important;
+  background-color:#12274b!important;
+  background-image:var(--gx36-button)!important;
+  background-size:100% 100%!important;
+}
+html.teriash-galaxy .inventory_wrapper .bags-navigation .item:is(.active,.selected,:hover) {
+  background-image:var(--gx36-button-hover)!important;
+  border-color:#9cdfff!important;
+}
+/* Male kontrolki, nie tkniete przez ogolny CSS */
+html.teriash-galaxy .layer.interface-layer :is(.hud-button,.widget-button,.action-button,.interface-button),
+html.teriash-galaxy :is(.battle-controller,.game-window-positioner,.border-window,.dialogue-window) :is(.button,.btn,.small-button,.tab-button) {
+  border-color:#558dce!important;
+  box-shadow:inset 0 0 0 1px rgba(98,163,240,.22)!important;
+}
+html.teriash-galaxy .layer.interface-layer :is(.hud-button,.widget-button,.action-button,.interface-button):hover,
+html.teriash-galaxy :is(.battle-controller,.game-window-positioner,.border-window,.dialogue-window) :is(.button,.btn,.small-button,.tab-button):hover {
+  border-color:#9edfff!important;
+  box-shadow:inset 0 0 6px rgba(100,198,255,.48)!important;
+}
+/* Chat, battle log, ranking i NPC - ozdobne tytuly i delikatne separatory */
+html.teriash-galaxy :is(.new-chat-window,.chat-window,.battle-controller,.battle-log-window,.quest-log,.clan-window,.guild-window,.dialogue-window) :is(.section-header,.header-graphic,.tab-header,.log-header,.panel-title) {
+  background-color:#112b59!important;
+  background-image:var(--gx36-title)!important;
+  background-size:100% 100%!important;
+  border-color:var(--gx36-edge)!important;
+}
+html.teriash-galaxy :is(.dialogue-window,.border-window,.world-window) :is(.dialogue-content,.content-wrapper,.middle-graphics) {
+  border-color:rgba(97,164,231,.48)!important;
+}
+/* Tooltips: same ramki, nie dotyka warstw i z-index. */
+html.teriash-galaxy :is(.tip-wrapper[data-type="t_item"],.item-tooltip,.game-tooltip) {
+  border-color:#73b7f1!important;
+  box-shadow:0 3px 16px rgba(0,4,21,.6),inset 0 0 0 1px rgba(125,198,255,.16)!important;
+}
+/* Wlasny dodatek minutnika: tylko gdy jego kontener pasuje do selektora. */
+html.teriash-galaxy:not(.gx36-no-timer) :is(.elite-timer,.elite-timer-container,.elite-timer-widget) {
+  background-color:#0b1934!important;
+  border-color:#508dcb!important;
+}
+html.teriash-galaxy:not(.gx36-no-timer) :is(.elite-timer,.elite-timer-container,.elite-timer-widget) :is(.header,.title-bar,.search-wrapper,.search-input) {
+  background-color:#172d52!important;
+  border-color:#4d83be!important;
+}
+html.teriash-galaxy:not(.gx36-no-timer) :is(.elite-timer,.elite-timer-container,.elite-timer-widget) :is(.timer-row,.row,.list-row) {
+  background-image:var(--gx36-timer)!important;
+  background-size:100% 100%!important;
+  border-color:rgba(90,143,210,.23)!important;
+}
+/* Paski przewijania - nie zmienia zachowania scrollem */
+html.teriash-galaxy :is(.border-window,.world-window,.inventory_wrapper,.new-chat-window,.battle-log-window,.depo) {
+  scrollbar-color:#4e8bc5 #09172f;
+}
+/* Wazne: brak globalnego ustawiania bg-image na .item / .slot occupied,
+   brak zmian pozycji, pointer-events, z-index lub renderu mapy. */
